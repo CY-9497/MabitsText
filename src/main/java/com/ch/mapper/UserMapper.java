@@ -14,4 +14,11 @@ public interface UserMapper {
      * @return 结果
      */
     List<User> findByCondition(User user);
+
+    /**
+     * 按名字查询
+     * @param ids 用户名
+     * @return 结果
+     */
+    List<User> findByIds(List<String> ids);
 }

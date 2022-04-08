@@ -15,4 +15,14 @@
             </if>
         </where>
     </select>
+    
+    <select id="findByIds" parameterType="list" resultType="user">
+        select * from user
+        <where>
+#             传入集合为list
+            <foreach collection="list" open="username in (" close=")" item="username" separator=",">
+                #{username}
+            </foreach>
+        </where>
+    </select>
 </mapper>
