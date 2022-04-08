@@ -3,9 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ch.mapper.UserMapper">
+    <!-- 抽取查询语句-->
+    <sql id="selectAllUser">select * from user</sql>
 
     <select id="findByCondition" parameterType="user" resultType="user">
-        select * from user 
+        <include refid="selectAllUser"/>
         <where>
             <if test="username != null">
                 and username = #{username}
@@ -17,7 +19,7 @@
     </select>
     
     <select id="findByIds" parameterType="list" resultType="user">
-        select * from user
+        <include refid="selectAllUser"/>
         <where>
 #             传入集合为list             以username in (开始   以）关闭   接受list的每一个参数   分隔符为逗号
             <foreach collection="list" open="username in (" close=")" item="username" separator=",">
