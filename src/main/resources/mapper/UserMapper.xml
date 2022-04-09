@@ -6,6 +6,10 @@
     <!-- 抽取查询语句-->
     <sql id="selectAllUser">select * from user</sql>
 
+    <select id="findAll" resultType="user">
+        <include refid="selectAllUser"> </include>
+    </select>
+
     <select id="findByCondition" parameterType="user" resultType="user">
         <include refid="selectAllUser"/>
         <where>
@@ -27,4 +31,8 @@
             </foreach>
         </where>
     </select>
+
+    <insert id="insertUser" parameterType="user">
+        insert into user values (#{username}, #{money}, #{time})
+    </insert>
 </mapper>

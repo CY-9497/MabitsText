@@ -21,4 +21,16 @@ public interface UserMapper {
      * @return 结果
      */
     List<User> findByIds(List<String> ids);
+
+    /**
+     * 查询所有用户
+     * @return 所有用户
+     */
+    List<User> findAll();
+
+    /**
+     * 插入用户信息
+     * @param user 用户
+     */
+    void insertUser(User user);
 }

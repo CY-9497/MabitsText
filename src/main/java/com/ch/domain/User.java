@@ -1,6 +1,7 @@
 package com.ch.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 
 /**
@@ -10,6 +11,7 @@ public class User implements Serializable {
 
     private String username;
     private Double money;
+    private Date time;
 
     public String getUsername() {
         return username;
@@ -27,11 +29,20 @@ public class User implements Serializable {
         this.money = money;
     }
 
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 ", money=" + money +
+                ", time=" + time +
                 '}';
     }
 }
